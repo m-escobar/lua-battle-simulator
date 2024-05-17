@@ -1,13 +1,17 @@
-local gamelib = require 'gamelib'
+local lib = require 'lib.game_lib'
+local actions = require 'lib.game_actions'
 
--- Set UTF-8 for Windows Terminal
-if package.config:sub(1,1) == '\\' then
-    os.execute('chcp 65001')
-    os.execute('cls')
-else
-    os.execute('clear')
-end
+local knights = require 'definitions.knights'
+local monsters = require 'definitions.monsters'
+
+local knights_counter = #knights.list
 
 
-gamelib.print_header()
+lib.setUTF8()
 
+lib.print_header()
+
+local knight = actions.select_kight(knights.list)
+
+print ()
+print ()
