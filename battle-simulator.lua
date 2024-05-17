@@ -5,6 +5,7 @@ local knights = require 'definitions.knights'
 local monsters = require 'definitions.monsters'
 
 local knights_counter = #knights.list
+local monsters_counter = #monsters.list
 
 
 lib.setUTF8()
