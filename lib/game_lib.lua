@@ -1,6 +1,17 @@
-local gamelib = {}
+local game_lib = {}
 
-function gamelib.print_header()
+--- Set UTF-8 for Windows Terminal
+function game_lib.setUTF8()
+    if package.config:sub(1,1) == '\\' then
+        os.execute('chcp 65001')
+        os.execute('cls')
+    else
+        os.execute('clear')
+    end
+end
+
+
+function game_lib.print_header()
     print(
     [[
 =======================================================================
@@ -17,5 +28,8 @@ function gamelib.print_header()
     ]])
 end
 
+function game_lib.capitalize(str)
+    return str:lower():gsub("^%l", string.upper)
+end
 
-return gamelib
+return game_lib
