@@ -1,9 +1,18 @@
 local game_lib = {}
 
---- Set UTF-8 for Windows Terminal
-function game_lib.setUTF8()
+--- Set system OS variable
+function game_lib.os()
     if package.config:sub(1,1) == '\\' then
-        os.execute('chcp 65001')
+        _G.OS = 1 -- windows
+    else
+        _G.OS = 2 -- linux based
+    end
+end
+
+
+--- Clear screen
+function game_lib.clear()
+    if _G.OS == 1 then
         os.execute('cls')
     else
         os.execute('clear')
@@ -11,25 +20,63 @@ function game_lib.setUTF8()
 end
 
 
-function game_lib.print_header()
-    print(
-    [[
-=======================================================================
+--- Set UTF-8 for Windows Terminal
+function game_lib.setUTF8()
+    game_lib.os()
 
-                    ⚔️   Battle Simulator   ⚔️
+    if _G.OS == 1 then
+        os.execute('chcp 65001')
+    end
 
-
-                        |
-            ////////////|---------------------------------,
-            `^^^^^^^^^^^|--------------------------------"
-
-
-=======================================================================
-    ]])
+    game_lib.clear()
 end
+
 
 function game_lib.capitalize(str)
     return str:lower():gsub("^%l", string.upper)
+end
+
+
+function game_lib.read_option()
+    return io.read("*number")
+end
+
+
+function game_lib.addSpaces(strSize, blockLength)
+	local result = ''
+
+	for _pos = strSize, blockLength, 1 do
+		result = result .. ' '
+	end
+
+	return result
+end
+
+
+function game_lib.print_line(param1, param2, margin, fixSize)
+    local spaces = ''
+    local endSpaces = ''
+    local block1 = ''
+    local block2 = ''
+
+    param1 = param1 or ''
+    param2 = param2 or ''
+
+    if margin ~= nil then
+    	for _x = 1, margin, 1 do
+        	spaces = spaces .. '    '
+        end
+    end
+
+    fixSize = fixSize or 0
+
+    block1 = '| ' .. spaces .. param1
+    block2 = '| ' .. spaces .. param2
+
+    local endBlock1 = game_lib.addSpaces(utf8.len(block1) - fixSize, 34)
+    local endBlock2 = game_lib.addSpaces(utf8.len(block2) - fixSize, 34)
+
+    print(block1 .. endBlock1 .. block2 .. endBlock2 .. '|')
 end
 
 return game_lib
