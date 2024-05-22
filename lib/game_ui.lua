@@ -1,4 +1,5 @@
 local lib = require 'lib.game_lib'
+local knights = require 'definitions.knights'
 
 local game_ui = {}
 
@@ -26,6 +27,17 @@ function game_ui.print_players_grid(knight, monster)
     game_ui.print_header()
 
     lib.print_line(knight.name, monster.name)
+    lib.print_line(knight.description, monster.description)
+    lib.print_line(' ', ' ')
+
+    for k,v in pairs(knights.atributes) do
+        local nSpaces = lib.addSpaces(utf8.len(v), 10)
+
+        lib.print_line(v .. nSpaces .. lib.getProgressBar(knight[v]), v .. nSpaces .. lib.getProgressBar(monster[v]), 1)
+    end
+
+    print('=======================================================================')
+    print()
 end
 
 return game_ui
