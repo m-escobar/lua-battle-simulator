@@ -11,4 +11,11 @@ local knights = {}
         'lancelote'
     }
 
+    knights.atributes = {
+        'attack',
+        'defense',
+        'health',
+        'maxHealth',
+        'speed'
+    }
 return knights

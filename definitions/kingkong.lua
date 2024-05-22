@@ -1,7 +1,7 @@
 local monsters = {}
 
     monsters.name = 'King Kong'
-    monsters.description = 'The gorilla king from Skull Island'
+    monsters.description = 'The king from Skull Island'
 
     monsters.maxHealth = 8
     monsters.health = 8
