@@ -11,4 +11,10 @@ local monsters = {}
         'kingkong'
     }
 
+    monsters.actions = {
+        'Tried to bite you',
+        'Dropped a rock on you',
+        'Direct attack'
+    }
+
 return monsters

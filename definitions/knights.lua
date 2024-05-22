@@ -17,4 +17,12 @@ local knights = {}
         'health',
         'speed'
     }
+
+    knights.actions = {
+            'Sword attack',
+            'Shield defense',
+            'Run away',
+            'Hide behind the big rock'
+    }
+
 return knights
