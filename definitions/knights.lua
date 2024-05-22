@@ -15,7 +15,6 @@ local knights = {}
         'attack',
         'defense',
         'health',
-        'maxHealth',
         'speed'
     }
 return knights
