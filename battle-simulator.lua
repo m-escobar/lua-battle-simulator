@@ -6,7 +6,7 @@ local knights = require 'definitions.knights'
 local monsters = require 'definitions.monsters'
 
 local knights_counter = #knights.list
-local monsters_counter = #monsters.list
+local player_action = 0
 
 lib.setUTF8()
 
@@ -16,8 +16,19 @@ local knight = knights[knights.list[knight_id]]
 local monster_id = math.random(#monsters.list)
 local monster = monsters[monsters.list[monster_id]]
 
---print(knight.name)
---print(monster.name)
 
+while true do
+    ui.print_players_grid(knight, monster)
 
-ui.print_players_grid(knight, monster)
+    player_action = actions.select_action(knights.actions)
+
+	if knight.health <= 0 then
+		break
+	end
+
+    --monster_turn()
+
+    if monster.health <= 0 then
+        break
+    end
+end
