@@ -52,6 +52,7 @@ function game_lib.addSpaces(strSize, blockLength)
 	return result
 end
 
+
 -- Create a formated line that composes the grid
 function game_lib.print_line(param1, param2, margin, fixSize)
     local spaces = ''
@@ -78,19 +79,17 @@ function game_lib.print_line(param1, param2, margin, fixSize)
     print(block1 .. resultBlock1 .. block2 .. resultBlock2 .. '|')
 end
 
+
 -- Create progress bar
 function game_lib.getProgressBar(attribute)
     local fullChar = '▮'
     local emptyChar = '▯'
-
     local result = ''
+
     for i = 1, 10, 1 do
-        if i <= attribute then
-            result = result .. fullChar
-        else
-            result = result .. emptyChar
-        end
+        result = result .. (i <= attribute and fullChar or emptyChar)
     end
+
     return result
 end
 
