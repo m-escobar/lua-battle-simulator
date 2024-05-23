@@ -1,5 +1,6 @@
 local lib = require 'lib.game_lib'
 local ui = require 'lib.game_ui'
+local actions = require 'lib.player_actions'
 
 local game_actions = {}
 
@@ -31,7 +32,7 @@ Choose your knight and go to the BATTLE field!
 end
 
 
-function game_actions.select_action(actions)
+function game_actions.select_action(player_actions)
     local user_input = 0
 
     repeat
@@ -42,15 +43,15 @@ Your turn! Choose what you will do:
 ]]
     )
 
-        for k, v in ipairs(actions) do
-            print(string.format('%s - %s', k, v))
+        for k, v in ipairs(player_actions) do
+            print(string.format('%s - %s', k, actions[v].description))
         end
 
         print()
 
         user_input = lib.read_option()
 
-    until (user_input < 0 or user_input > #actions)
+    until (user_input > 0 and user_input <= #player_actions)
 
     return user_input
 end
