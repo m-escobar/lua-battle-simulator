@@ -1,10 +1,7 @@
-local arthur = require 'definitions.arthur'
-local lancelote = require 'definitions.lancelote'
-
 local knights = {}
 
-    knights.arthur = arthur
-    knights.lancelote = lancelote
+    knights.arthur = require 'definitions.arthur'
+    knights.lancelote = require 'definitions.lancelote'
 
     knights.list = {
         'arthur',
@@ -15,14 +12,8 @@ local knights = {}
         'attack',
         'defense',
         'health',
-        'speed'
-    }
-
-    knights.actions = {
-            'Sword attack',
-            'Shield defense',
-            'Run away',
-            'Hide behind the big rock'
+        'speed',
+        'power'
     }
 
 return knights
