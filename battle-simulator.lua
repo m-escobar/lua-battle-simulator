@@ -11,7 +11,7 @@ local oponent_action = 0
 lib.setUTF8()
 
 
-local knight_id = actions.select_kight(knights.list, #knights.list)
+local knight_id = actions.select_kight(knights.list)
 local knight = knights[knights.list[knight_id]]
 
 local monster_id = math.random(#monsters.list)
@@ -23,8 +23,8 @@ while true do
     ui.print_header()
     ui.print_players_grid(knight, monster)
 
-
-    player_action = actions.select_action(knight.actions)
+    player_action = actions.select_action(knight)
+    player_action.execute()
 
 	if knight.health <= 0 then
 		break

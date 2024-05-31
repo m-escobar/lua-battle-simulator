@@ -30,7 +30,7 @@ function game_ui.print_players_grid(knight, monster)
     lib.print_line(knight.description, monster.description)
     lib.print_line(' ', ' ')
 
-    for k,v in pairs(knights.atributes) do
+    for _, v in pairs(knights.atributes) do
         local nSpaces = lib.addSpaces(utf8.len(v), 10)
 
         lib.print_line(v .. nSpaces .. lib.getProgressBar(knight[v]), v .. nSpaces .. lib.getProgressBar(monster[v]), 1)
