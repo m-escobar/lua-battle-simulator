@@ -1,12 +1,13 @@
 local lib = require 'lib.game_lib'
 local ui = require 'lib.game_ui'
 local actions = require 'lib.player_actions'
+local players = require 'definitions.players'
 
 local game_actions = {}
 
-function game_actions.select_kight(knight_list)
+function game_actions.select_player(player_list)
     local user_input = 0
-    local knights_counter = #knight_list
+    local player_counter = #player_list
 
     ui.print_header()
 
@@ -14,28 +15,28 @@ function game_actions.select_kight(knight_list)
         print(
 [[
 
-Choose your knight and go to the BATTLE field!
+Choose your Player and go to the BATTLE field!
 
 ]]
     )
 
-        for k, v in ipairs(knight_list) do
-            print(string.format('%s - %s', k, lib.capitalize(v)))
+        for k, v in ipairs(player_list) do
+            print(string.format('%s - %s', k, players[v].name))
         end
 
         print()
 
         user_input = lib.read_option()
 
-    until (user_input > 0 and user_input <= knights_counter)
+    until (user_input > 0 and user_input <= player_counter)
 
     return user_input
 end
 
 
-function game_actions.select_action(knight)
+function game_actions.select_action(player)
     local user_input = 0
-    local valid_actions = game_actions.get_valid_actions(knight)
+    local valid_actions = game_actions.get_valid_actions(player)
 
     repeat
         print(
@@ -59,12 +60,11 @@ Your turn! Choose what you will do:
 end
 
 --- Return a lista of valid player actions
---- @param knight table Knight definition
-function game_actions.get_valid_actions(knight)
+--- @param player table Player definition
+function game_actions.get_valid_actions(player)
     local valid_actions = {}
-    local player_actions = knight.actions
 
-    for _, v in ipairs(player_actions) do
+    for _, v in ipairs(player.actions) do
         local requirement = actions[v].requirement
         local is_valid = requirement == nil or requirement  -- O que fazer aqui para validar??
 

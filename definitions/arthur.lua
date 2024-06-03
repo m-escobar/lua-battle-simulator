@@ -1,18 +1,18 @@
-local knights = {}
+local arthur = {}
 
-    knights.name = 'Arthur King'
-    knights.description = 'The king of Camelot'
+    arthur.name = 'Arthur King'
+    arthur.description = 'The king of Camelot'
 
-    knights.health = 10
-    knights.attack = 7
-    knights.defense = 6
-    knights.speed = 7
-    knights.power = 7
+    arthur.health = 10
+    arthur.attack = 7
+    arthur.defense = 6
+    arthur.speed = 7
+    arthur.power = 7
 
-    knights.actions = {
+    arthur.actions = {
         'sword_attack',
         'drink_potion',
         'dodge'
     }
 
-return knights
+return arthur

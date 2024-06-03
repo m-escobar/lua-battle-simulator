@@ -1,17 +1,17 @@
-local monsters = {}
+local kingkong = {}
 
-    monsters.name = 'King Kong'
-    monsters.description = 'The king from Skull Island'
+    kingkong.name = 'King Kong'
+    kingkong.description = 'The king from Skull Island'
 
-    monsters.health = 10
-    monsters.attack = 4
-    monsters.defense = 4
-    monsters.speed = 6
-    monsters.power = 8
+    kingkong.health = 10
+    kingkong.attack = 4
+    kingkong.defense = 4
+    kingkong.speed = 6
+    kingkong.power = 8
 
-    monsters.actions = {
+    kingkong.actions = {
         'foot_hit',
         'hand_hit'
     }
 
-return monsters
+return kingkong

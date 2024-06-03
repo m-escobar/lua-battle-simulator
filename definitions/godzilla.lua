@@ -1,17 +1,17 @@
-local monsters = {}
+local godzilla = {}
 
-    monsters.name = 'Godzilla'
-    monsters.description = 'The King of the monsters!'
+    godzilla.name = 'Godzilla'
+    godzilla.description = 'The King of the monsters!'
 
-    monsters.health = 10
-    monsters.attack = 6
-    monsters.defense = 3
-    monsters.speed = 5
-    monsters.power = 10
+    godzilla.health = 10
+    godzilla.attack = 6
+    godzilla.defense = 3
+    godzilla.speed = 5
+    godzilla.power = 10
 
-    monsters.actions = {
+    godzilla.actions = {
         'fire_attack',
         'tail_hit'
     }
 
-return monsters
+return godzilla

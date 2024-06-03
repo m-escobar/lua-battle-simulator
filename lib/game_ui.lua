@@ -1,5 +1,5 @@
 local lib = require 'lib.game_lib'
-local knights = require 'definitions.knights'
+local players = require 'definitions.players'
 
 local game_ui = {}
 
@@ -22,18 +22,18 @@ function game_ui.print_header()
 end
 
 
-function game_ui.print_players_grid(knight, monster)
+function game_ui.print_players_grid(player, opponent)
     lib.clear()
     game_ui.print_header()
 
-    lib.print_line(knight.name, monster.name)
-    lib.print_line(knight.description, monster.description)
+    lib.print_line(player.name, opponent.name)
+    lib.print_line(player.description, opponent.description)
     lib.print_line(' ', ' ')
 
-    for _, v in pairs(knights.atributes) do
+    for _, v in pairs(players.atributes) do
         local nSpaces = lib.addSpaces(utf8.len(v), 10)
 
-        lib.print_line(v .. nSpaces .. lib.getProgressBar(knight[v]), v .. nSpaces .. lib.getProgressBar(monster[v]), 1)
+        lib.print_line(v .. nSpaces .. lib.getProgressBar(player[v]), v .. nSpaces .. lib.getProgressBar(opponent[v]), 1)
     end
 
     print('=======================================================================')

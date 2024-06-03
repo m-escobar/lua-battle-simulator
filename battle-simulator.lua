@@ -2,37 +2,36 @@ local lib = require 'lib.game_lib'
 local actions = require 'lib.game_actions'
 local ui = require 'lib.game_ui'
 
-local knights = require 'definitions.knights'
-local monsters = require 'definitions.monsters'
+local players = require 'definitions.players'
 
 local player_action = 0
-local oponent_action = 0
+local opponent_action = 0
 
 lib.setUTF8()
 
 
-local knight_id = actions.select_kight(knights.list)
-local knight = knights[knights.list[knight_id]]
+local player_id = actions.select_player(players.list)
+local player = players[players.list[player_id]]
 
-local monster_id = math.random(#monsters.list)
-local monster = monsters[monsters.list[monster_id]]
+local opponent_id = math.random(#players.list)
+local opponent = players[players.list[opponent_id]]
 
 
 while true do
     lib.clear()
     ui.print_header()
-    ui.print_players_grid(knight, monster)
+    ui.print_players_grid(player, opponent)
 
-    player_action = actions.select_action(knight)
+    player_action = actions.select_action(player)
     player_action.execute()
 
-	if knight.health <= 0 then
+	if player.health <= 0 then
 		break
 	end
 
-    oponent_action = math.random(#monster.actions)
+    opponent_action = math.random(#opponent.actions)
 
-    if monster.health <= 0 then
+    if opponent.health <= 0 then
         break
     end
     break

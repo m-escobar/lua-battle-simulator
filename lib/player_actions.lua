@@ -21,4 +21,29 @@ local player_actions = {}
         requirement = nil
     }
 
+    player_actions.fire_attack = {
+        id = 'fire_attack',
+        description = 'Throw a fire attack',
+        requirement = nil
+    }
+
+    player_actions.tail_hit = {
+        id = 'tail_hit',
+        description = 'Hit your opponent with the tail',
+        requirement = nil
+    }
+
+
+    player_actions.foot_hit = {
+        id = 'foot_hit',
+        description = 'Smash that small ant!',
+        requirement = nil
+    }
+
+    player_actions.hand_hit = {
+            id = 'hand_hit',
+            description = 'Puch him!',
+            requirement = nil
+    }
+
 return player_actions
