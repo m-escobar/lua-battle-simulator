@@ -17,8 +17,7 @@ function game_ui.print_header()
             `^^^^^^^^^^^|--------------------------------"
 
 
-=======================================================================
-    ]])
+=======================================================================]])
 end
 
 
@@ -34,8 +33,13 @@ function game_ui.print_players_grid(player, opponent)
         local nSpaces = lib.addSpaces(utf8.len(v), 10)
 
         lib.print_line(v .. nSpaces .. lib.getProgressBar(player[v]), v .. nSpaces .. lib.getProgressBar(opponent[v]), 1)
+
+        if (v=='health') then
+            lib.print_line(' ', ' ')
+        end
     end
 
+    lib.print_line(' ', ' ')
     print('=======================================================================')
     print()
 end

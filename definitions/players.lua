@@ -13,9 +13,9 @@ local players = {}
     }
 
     players.atributes = {
+        'health',
         'attack',
         'defense',
-        'health',
         'speed',
         'power'
     }
