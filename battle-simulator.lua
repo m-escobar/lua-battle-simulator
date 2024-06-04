@@ -1,11 +1,12 @@
 local lib = require 'lib.game_lib'
-local actions = require 'lib.game_actions'
 local ui = require 'lib.game_ui'
+local actions = require 'lib.game_actions'
+local player_actions = require 'lib.player_actions'
 
 local players = require 'definitions.players'
 
-local player_action = 0
-local opponent_action = 0
+local player_action_name = 0
+local opponent_action_name = 0
 
 lib.setUTF8()
 
@@ -22,8 +23,8 @@ while true do
     ui.print_header()
     ui.print_players_grid(player, opponent)
 
-    player_action = actions.select_action(player)
-    player_action.execute()
+    player_action_name = actions.select_action(player)
+    player_actions[player_action_name].execute()
 
 	if player.health <= 0 then
 		break
