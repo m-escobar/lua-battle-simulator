@@ -15,4 +15,9 @@ local arthur = {}
         'dodge'
     }
 
+    arthur.items = {
+        sword = 1,
+        potion = 1
+    }
+
 return arthur

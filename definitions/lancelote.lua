@@ -11,8 +11,11 @@ local lancelote = {}
 
     lancelote.actions = {
         'sword_attack',
-        'drink_potion',
         'dodge'
+    }
+
+    lancelote.items = {
+        sword = 1
     }
 
 return lancelote
