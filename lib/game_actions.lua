@@ -66,7 +66,7 @@ function game_actions.get_valid_actions(player)
 
     for _, v in ipairs(player.actions) do
         local requirement = actions[v].requirement
-        local is_valid = requirement == nil or requirement  -- O que fazer aqui para validar??
+        local is_valid = requirement == nil or player.items[requirement.name] >= 1
 
         if is_valid == true then
             valid_actions[#valid_actions + 1] = actions[v].id
