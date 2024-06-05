@@ -6,8 +6,15 @@ local player_actions = {}
         requirement = {
             name = 'sword'
         },
-        execute = function()
-            print('running at FN sword_attack')
+        execute = function(player, opponent)
+            local player_attack = player.attack / opponent.power
+            local opponent_defense = opponent.defense / player.power
+
+            if player_attack > opponent_defense then
+            	opponent.health = opponent.health - 1
+            else
+                player.health = player.health - 1
+            end
         end
     }
 
@@ -17,8 +24,9 @@ local player_actions = {}
         requirement = {
             name = 'potion'
         },
-        execute = function()
-            print('running at FN drink_potion')
+        execute = function(player, _)
+            player.health = 10
+            player.potion = player.items.potion - 1
         end
     }
 
@@ -26,8 +34,7 @@ local player_actions = {}
         id = 'dodge',
         description = 'Dodge from oponent attack',
         requirement = nil,
-        execute = function()
-                    print('running at FN dodge')
+        execute = function(_, _)
         end
     }
 
@@ -35,8 +42,15 @@ local player_actions = {}
         id = 'fire_attack',
         description = 'Throw a fire attack',
         requirement = nil,
-        execute = function()
-                    print('running at FN dodge')
+        execute = function(player, opponent)
+            local player_attack = player.attack / opponent.power
+            local opponent_defense = opponent.defense / player.power
+
+            if player_attack > opponent_defense then
+            	opponent.health = opponent.health - 3
+            else
+                player.health = player.health - 1
+            end
         end
     }
 
@@ -44,8 +58,15 @@ local player_actions = {}
         id = 'tail_hit',
         description = 'Hit your opponent with the tail',
         requirement = nil,
-        execute = function()
-                    print('running at FN dodge')
+        execute = function(player, opponent)
+            local player_attack = player.attack / opponent.power
+            local opponent_defense = opponent.defense / player.power
+
+            if player_attack > opponent_defense then
+            	opponent.health = opponent.health - 2
+            else
+                player.health = player.health - 1
+            end
         end
     }
 
@@ -54,8 +75,16 @@ local player_actions = {}
         id = 'foot_hit',
         description = 'Smash that small ant!',
         requirement = nil,
-        execute = function()
-                    print('running at FN dodge')
+        execute = function(player, opponent)
+            local player_attack = player.attack / opponent.power
+            local opponent_defense = opponent.defense / player.power
+
+            if player_attack > opponent_defense then
+            	opponent.health = opponent.health - 2
+            	opponent.sword = opponent.items.sword - 1
+            else
+                player.health = player.health - 1
+            end
         end
     }
 
@@ -63,8 +92,16 @@ local player_actions = {}
             id = 'hand_hit',
             description = 'Puch him!',
             requirement = nil,
-        execute = function()
-                    print('running at FN dodge')
+        execute = function(player, opponent)
+            local player_attack = player.attack / opponent.power
+            local opponent_defense = opponent.defense / player.power
+
+            if player_attack > opponent_defense then
+            	opponent.health = opponent.health - 1
+            	opponent.sword = opponent.potion - 1
+            else
+                player.health = player.health - 1
+            end
         end
     }
 
