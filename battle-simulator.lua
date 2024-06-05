@@ -18,22 +18,25 @@ local opponent_id = math.random(#players.list)
 local opponent = players[players.list[opponent_id]]
 
 
-while true do
+repeat
     lib.clear()
     ui.print_header()
     ui.print_players_grid(player, opponent)
 
     player_action_name = actions.select_action(player)
-    player_actions[player_action_name].execute()
+    print('PAN', player_action_name)
+    player_actions[player_action_name].execute(player, opponent)
 
 	if player.health <= 0 then
 		break
 	end
 
-    opponent_action = math.random(#opponent.actions)
+    opponent_action_name = opponent.actions[math.random(#opponent.actions)]
+    print('OAN', opponent_action_name)
+    player_actions[opponent_action_name].execute(opponent, player)
 
     if opponent.health <= 0 then
         break
     end
-    break
-end
+lib.read_option()
+until false
