@@ -4,7 +4,7 @@ local godzilla = {}
     godzilla.description = 'The King of the monsters!'
 
     godzilla.health = 10
-    godzilla.attack = 6
+    godzilla.attack = 5
     godzilla.defense = 3
     godzilla.speed = 5
     godzilla.power = 10
