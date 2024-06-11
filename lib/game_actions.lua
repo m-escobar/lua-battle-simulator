@@ -76,4 +76,19 @@ function game_actions.get_valid_actions(player)
     return valid_actions
 end
 
+function game_actions.select_opponent(players_list, player_id)
+    local selected_opponent = 0
+
+    repeat
+        local opponent = math.random(#players_list)
+
+        if opponent ~= player_id
+            then selected_opponent = opponent
+        end
+
+    until selected_opponent > 0
+
+    return selected_opponent
+end
+
 return game_actions

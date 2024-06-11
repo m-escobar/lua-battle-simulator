@@ -26,7 +26,7 @@ local player_actions = {}
         },
         execute = function(player, _)
             player.health = 10
-            player.potion = player.items.potion - 1
+            player.items.potion = player.items.potion - 1
         end
     }
 

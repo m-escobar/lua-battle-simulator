@@ -14,7 +14,7 @@ lib.setUTF8()
 local player_id = actions.select_player(players.list)
 local player = players[players.list[player_id]]
 
-local opponent_id = math.random(#players.list)
+local opponent_id = actions.select_opponent(players.list, player_id)
 local opponent = players[players.list[opponent_id]]
 
 
