@@ -44,4 +44,26 @@ function game_ui.print_players_grid(player, opponent)
     print()
 end
 
+function game_ui.game_over(player, opponent, type)
+    lib.clear()
+    game_ui.print_header()
+    game_ui.print_players_grid(player, opponent)
+
+    if type == 1 then
+        print([[
+
+        Congratulations You WIN!!!
+
+
+]])
+    else
+        print([[
+
+        Ohhhh you lose!!! Try again!
+
+
+]])
+    end
+end
+
 return game_ui

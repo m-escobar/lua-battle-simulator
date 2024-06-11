@@ -27,16 +27,19 @@ repeat
     print('PAN', player_action_name)
     player_actions[player_action_name].execute(player, opponent)
 
-	if player.health <= 0 then
-		break
-	end
+	if opponent.health <= 0 then
+        ui.game_over(player, opponent, 1)
+        break
+    end
 
     opponent_action_name = opponent.actions[math.random(#opponent.actions)]
     print('OAN', opponent_action_name)
     player_actions[opponent_action_name].execute(opponent, player)
 
-    if opponent.health <= 0 then
+    if player.health <= 0 then
+        ui.game_over(player, opponent, 2)
         break
     end
+
 lib.read_option()
 until false
