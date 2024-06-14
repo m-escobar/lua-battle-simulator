@@ -19,8 +19,6 @@ local opponent = players[players.list[opponent_id]]
 
 
 repeat
-    lib.clear()
-    ui.print_header()
     ui.print_players_grid(player, opponent)
 
     player_action_name = actions.select_action(player)
